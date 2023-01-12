@@ -57,8 +57,7 @@ const Pokedex = () => {
 
     const changeSearch = (e) => {
         setSearch(e.target.value);
-        if(e.key === 'Enter') submit(e)
-    }
+    };
 
     const submit = (e) => {
         e.preventDefault();
@@ -103,11 +102,12 @@ const Pokedex = () => {
                 <div className="search-container">
                     <label htmlFor="search"></label>
                     <input
+                        className={`search-submit ${!show ? 'show' : 'hide'}`}
                         id="search"
                         type="text"
-                        onChange={(e) => changeSearch()}
+                        onChange={(e) => changeSearch(e)}
                         value={search}
-                        className={`search-submit ${!show ? 'show' : 'hide'}`}
+                        onClick={(e)=>submit(e)}
                     />
                     <button className="button-search-submit"></button>
 
